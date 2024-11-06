@@ -1,18 +1,16 @@
 gg.alert("❌二次配布、販売は禁止です❌")
-gg.alert("ンァーWWWWWWWWWWWWWWWW")
-
 function Main()
     Menu = gg.choice({ 
-        "🌌重力系メニュー🌌",
-        "🧭座標系メニュー🧭",
-        "🌠人物系メニュー🌠",
-        "⚔️武器系メニュー⚔️",
-        "🔒その他メニュー🔒",
-        "📦宝箱系メニュー📦",
+        "重力系メニュー",
+        "座標系メニュー",
+        "人物系メニュー",
+        "武器系メニュー",
+        "その他メニュー",
+        "宝箱系メニュー",
         "test",
-        "❓説明❓",
-        "⏹️終了⏹️",
-    }, nil, 'PlayngEscapePro')
+        "説明",
+        "終了",
+    }, nil, '===キーは変更不可能です。===')
     if Menu == 1 then grav() end
     if Menu == 2 then Current() end
     if Menu == 3 then movement() end
@@ -24,30 +22,19 @@ function Main()
     if Menu == 9 then os.exit() end
     YUNI = -1
 end
-
-
-
-
-
-
-
 function q()
     gg.alert("武器反映は落ちやすいです。時々無重力入らないかも知れません。あと普通にMAPがバグります。あと武器改造は毎試合オンオフしないと使えません。")
-    gg.alert("💀竹田龍殺すぞ💀")
+    gg.alert("💀scarletとhahaha殺すぞWwwwwwwwww💀")
 end
 
 function ChestMenu()      
     siubo = gg.multiChoice({
-        "🧭test🧭",
-        "⚪改造ON⚪",
-        "⚪改造OFF⚪",
-    }, nil, 'PlayinEscapePro')
+        "全宝箱スイッチ",
+    }, nil, 'RaaMods&MumbleDebug')
     
     if siubo == nil then return end  
     
     if siubo[1] then ChestMenu0() end
-    if siubo[2] then lol3() end
-    if siubo[3] then lol2() end
     YUNI = -1
 end
 
@@ -70,69 +57,7 @@ function ChestMenu0()
     end 
     gg.setValues(dizh1)
 end    
-
-
-function ChestMenu0()
-    gg.clearResults()
-    gg.searchNumber("h9F89BF5E 9F9F891E", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
-    gg.searchNumber("-97", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
-    local r = gg.getResults(1000)
-    local dizh1 = {}
-    local dizh2 = 1
-    for i = 1, #r do
-      dizh1[dizh2] = {}
-      dizh1[dizh2].address = r[i].address + 0x78
-      dizh1[dizh2].flags = gg.TYPE_DWORD
-      dizh1[dizh2].value = 1
-      dizh2 = dizh2 + 4
-      i = i + 1
-    end 
-    gg.setValues(dizh1)
-end  
-
-
-function lol2()
-    local searches = {
-        {search = "6830252227170004540", edit = 7358743112637710803},
-    }
-    for i, v in ipairs(searches) do
-        gg.clearResults()
-        gg.setRanges(gg.REGION_ANONYMOUS)
-        gg.searchNumber(v.search, gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
-        
-        local r = gg.getResults(1000)
-        local a = {}
-        for j = 1, #r do
-            a[j] = {}
-            a[j].address = r[j].address + 0x10
-            a[j].flags = gg.TYPE_QWORD
-            a[j].value = v.edit
-        end
-        gg.setValues(a)
-        gg.toast("値が設定されました。")
-    end
-    gg.clearResults()
-end
-
-function lol3()
-    
-    gg.clearResults()
-    gg.setRanges(gg.REGION_ANONYMOUS)
-    gg.searchNumber("7358743112637710803", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
-    local revert = gg.getResults(1000) 
-    if #revert > 0 then
-        gg.editAll("6,792,867,371,528,032,116", gg.TYPE_QWORD)
-        gg.processResume()
-        gg.toast("ON")
-    else
-        gg.toast("検索結果が見つかりませんでした")
-    end
-    
-    gg.clearResults()
-end
-
-
-
+ 
 
 function grav()
     siubo = gg.multiChoice({
@@ -146,6 +71,17 @@ function grav()
     if siubo[2] then unzerogravity() end
     YUNI = -1
 end
+
+
+function opt()
+    gg.clearResults()
+    gg.searchNumber("h0000803FABAAAA3E8FC2F53C", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
+    revert = gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+    gg.editAll("h0000803FABAAAA3E00000000", gg.TYPE_BYTE)
+    gg.processResume()
+    gg.toast("軽量化成功")
+    gg.clearResults()
+    end
 
 function iszerogravity()
     gg.clearResults()
@@ -198,10 +134,10 @@ function dizh1()
 
     function Current()
         siubo = gg.multiChoice({
-            "🧭現在の座標を表示🧭",
-            "⚪白チームの前にTP⚪",
-            "🔴赤チームの前にTP🔴",
-            "⚒️カスタムテレポート⚒️",
+            "現在の座標を表示",
+            "白チームの前にTP",
+            "赤チームの前にTP",
+            "カスタムテレポート",
         }, nil, 'PlayinEscapePro')
         
         if siubo == nil then return end  
@@ -339,10 +275,11 @@ end
 
 function movement()
     siubo = gg.multiChoice({
-        "🚙ハイジャンプ ON",
-        "🚙ハイスピード ON",
-        "⚡無敵 ON",
-        "🌑無限ジャンプ ON",
+        "ハイジャンプ ON",
+        "ハイスピード ON",
+        "無敵 ON",
+        "無限ジャンプ ON",
+        "水ジャンプ ON",
     }, nil, 'PlayinEscapePro')
     
     if siubo == nil then return end  
@@ -351,11 +288,30 @@ function movement()
     if siubo[2] then Highspeed() end
     if siubo[3] then muteki() end
     if siubo[4] then airjump() end
+    if siubo[5] then waterjump() end
     YUNI = -1
 end
 
-
-
+function waterjump()
+    gg.clearResults()
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.searchNumber("1,121,193,960", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+    local r = gg.getResults(1000)
+    local a = {}
+    local n = 1
+    
+    for i = 1, #r do
+      a[n] = {}
+      a[n].address = r[i].address - 0xA8
+      a[n].flags = gg.TYPE_DWORD
+      a[n].value = 1
+      a[n].freeze = true
+      n = n + 1
+    end 
+    
+    gg.setValues(a)
+    gg.addListItems(a) 
+  end
 
 
 
@@ -397,7 +353,7 @@ function muteki()
         local a = {}
         local n = 1
         for i = 1, #r do
-            a[n] = { address = r[i].address - 0x8, flags = gg.TYPE_DWORD, value = 114514 }
+            a[n] = { address = r[i].address - 0x8, flags = gg.TYPE_DWORD, value = 0 }
             n = n + 1
         end 
         gg.toast("無敵ON")
@@ -427,13 +383,12 @@ end
 
 function weapons()
         siubo = gg.multiChoice({
-            "🔫武器連射＋反映🔫",
-            "⚒️武器改造 ON⚒️",
-            "⚒️武器改造 OFF⚒️",
-            "💥武器連射 通常モード💥",
-            "💥SPAIサポートモード💥",
-            "⚒️旧武器改造 ON⚒️",
-            "⚒️旧武器改造 OFF⚒️",
+            "武器連射＋反映",
+            "武器改造 ON",
+            "武器改造 OFF",
+            "武器連射 通常モード",
+            "SPAIサポートモード",
+            "パンチのみ連射",
         }, nil, 'PlayinEscapePro')
         
         if siubo == nil then return end  
@@ -443,6 +398,7 @@ function weapons()
         if siubo[3] then modweaponOFF() end
         if siubo[4] then rapitfireNomal() end
         if siubo[5] then rapitfirespai() end
+        if siubo[6] then hikakin() end
         YUNI = -1
     end
 
@@ -561,6 +517,7 @@ function weapons()
     gg.setRanges(gg.REGION_ANONYMOUS)
     
     local searchValues = {
+        { "1735305744", { -0x44, -0x88, -0xA0, -0x14, -0x10, 0x10, 0x20, 0x24 }, "パンチ" },
         { "1,031,339,950", { -0x44, -0x88, -0xA0, -0x14, -0x10, 0x10, 0x20, 0x24 }, "SAI入手器" },
         { "1476720745", { -0x44, -0x84, -0xA0, -0x14, -0x10, 0x10, 0x20, 0x24 }, "AIワープ" },
         { "1165510785", { -0x44, -0x84, -0xA0, -0x14, -0x10, 0x10, 0x20, 0x24 }, "瓶" },
@@ -598,6 +555,8 @@ function weapons()
         gg.clearResults()
     end
 end
+
+
 
 function modweaponON()
     local searches = {
@@ -648,17 +607,46 @@ function modweaponOFF()
     gg.clearResults()
 end
 
+function hikakin()
+    gg.clearResults()
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.searchNumber("h10 AA 6E 67", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
+    local r = gg.getResults(1000)
+    local a = {}
+    local n = 1
+    for i = 1, #r do
+      a[n] = {}
+      a[n].address = r[i].address - 20
+      a[n].flags = gg.TYPE_DWORD
+      a[n].value = 0
+      a[n + 1] = {}
+      a[n + 1].address = r[i].address - 16
+      a[n + 1].flags = gg.TYPE_DWORD
+      a[n + 1].value = 0
+      a[n + 2] = {}
+      a[n + 2].address = r[i].address + 32
+      a[n + 2].flags = gg.TYPE_DWORD
+      a[n + 2].value = 0
+      a[n + 3] = {}
+      a[n + 3].address = r[i].address + 36
+      a[n + 3].flags = gg.TYPE_DWORD
+      a[n + 3].value = 0
+      n = n + 4
+      i = i + 1
+    end 
+    gg.setValues(a)
+end 
 
 function Misc1()
     siubo = gg.multiChoice({
-        "💀トラップ無効",
+        "トラップ無効",
         "TP クールタイム無効",
         "近接拘束 クールタイム無効",
         "クールタイム無効武器 反映",
-        "テストモジュール1",
-        "テストモジュール2",
-        "テストモジュール3",
-        "テストモジュール4",
+        "(hvh) パンチ => 看守棒",
+        "(hvh) 拘束槍 => にゃっくる",
+        "(hvh) パンチ => アイス",
+        "testmodule",
     }, nil, 'PlayinEscapePro')
     
     if siubo == nil then return end  
@@ -785,14 +773,14 @@ function aa5()
     gg.setRanges(gg.REGION_ANONYMOUS)
     gg.clearResults()
     
-    gg.searchNumber("1,977,194,772", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+    gg.searchNumber("6339221200358174732", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
     local results = gg.getResults(100)
     
     if #results > 0 then
         local punchDistanceAddress = results[#results].address + 0x70
         gg.clearResults()
         
-        gg.searchNumber("1,761,694,714", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
+        gg.searchNumber("7566421188222735354", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
         local weaponResults = gg.getResults(100)
         
         if #weaponResults > 0 then
@@ -815,26 +803,25 @@ end
 function aa6()
     gg.setRanges(gg.REGION_ANONYMOUS)
     gg.clearResults()
-    
-    gg.searchNumber("4720532735758873481", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
-    local results = gg.getResults(100)
-    
+
+    gg.searchNumber("6558252613970925570", gg.TYPE_QWORD)
+    local results = gg.getResults(1)
+
     if #results > 0 then
-        local punchDistanceAddress = results[#results].address + 0x70
+        local punchDistance = results[1].address + 0x70
+        local punchValue = gg.getValues({{ address = punchDistance, flags = gg.TYPE_QWORD }})[1].value
+        
         gg.clearResults()
-        
-        gg.searchNumber("7566421188222735354", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
+        gg.searchNumber("9021198316195654500", gg.TYPE_QWORD)
         local weaponResults = gg.getResults(100)
-        
+
         if #weaponResults > 0 then
-            local punchDistanceValue = gg.getValues({{ address = punchDistanceAddress, flags = gg.TYPE_QWORD }})[1].value
-            
-            local updateTable = {}
             for _, weapon in ipairs(weaponResults) do
-                table.insert(updateTable, { address = weapon.address + 0x70, flags = gg.TYPE_QWORD, value = punchDistanceValue })
+                weapon.address = weapon.address + 0x70
+                weapon.flags = gg.TYPE_QWORD
+                weapon.value = punchValue
             end
-            gg.setValues(updateTable)
-            
+            gg.setValues(weaponResults)
         else
             gg.alert("他の武器が見つかりませんでした。")
         end
@@ -842,43 +829,17 @@ function aa6()
         gg.alert("パンチのIDが見つかりませんでした。")
     end
 end
+
 
 function aa7()
-    gg.setRanges(gg.REGION_ANONYMOUS)
-    gg.clearResults()
-    
-    gg.searchNumber("5874208436891509112", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
-    local results = gg.getResults(100)
-    
-    if #results > 0 then
-        local punchDistanceAddress = results[#results].address + 0x70
-        gg.clearResults()
-        
-        gg.searchNumber("4720532735758873481", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
-        local weaponResults = gg.getResults(100)
-        
-        if #weaponResults > 0 then
-            local punchDistanceValue = gg.getValues({{ address = punchDistanceAddress, flags = gg.TYPE_QWORD }})[1].value
-            
-            local updateTable = {}
-            for _, weapon in ipairs(weaponResults) do
-                table.insert(updateTable, { address = weapon.address + 0x70, flags = gg.TYPE_QWORD, value = punchDistanceValue })
-            end
-            gg.setValues(updateTable)
-            
-        else
-            gg.alert("他の武器が見つかりませんでした。")
-        end
-    else
-        gg.alert("パンチのIDが見つかりませんでした。")
+    if _G.punchDistanceSet then
+        gg.alert("設定はすでに適用されています。")
+        return
     end
-end
-
-function aa8()
     gg.setRanges(gg.REGION_ANONYMOUS)
     gg.clearResults()
     
-    gg.searchNumber("6339221200358174732", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
+    gg.searchNumber("7118627438276014591", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
     local results = gg.getResults(100)
     
     if #results > 0 then
@@ -897,6 +858,8 @@ function aa8()
             end
             gg.setValues(updateTable)
             
+            _G.punchDistanceSet = true
+            gg.toast("設定が適用されました。")
         else
             gg.alert("他の武器が見つかりませんでした。")
         end
@@ -904,6 +867,45 @@ function aa8()
         gg.alert("パンチのIDが見つかりませんでした。")
     end
 end
+
+
+function aa8()
+    if _G.punchDistanceSet then
+        gg.alert("設定はすでに適用されています。")
+        return
+    end
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.clearResults()
+    
+    gg.searchNumber("6286271834203446593", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
+    local results = gg.getResults(100)
+    
+    if #results > 0 then
+        local punchDistanceAddress = results[#results].address + 0x70
+        gg.clearResults()
+        
+        gg.searchNumber("7566421188222735354", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1)
+        local weaponResults = gg.getResults(100)
+        
+        if #weaponResults > 0 then
+            local punchDistanceValue = gg.getValues({{ address = punchDistanceAddress, flags = gg.TYPE_QWORD }})[1].value
+            
+            local updateTable = {}
+            for _, weapon in ipairs(weaponResults) do
+                table.insert(updateTable, { address = weapon.address + 0x70, flags = gg.TYPE_QWORD, value = punchDistanceValue })
+            end
+            gg.setValues(updateTable)
+            
+            _G.punchDistanceSet = true
+            gg.alert("設定が適用されました。")
+        else
+            gg.toast("他の武器が見つかりませんでした。")
+        end
+    else
+        gg.alert("パンチのIDが見つかりませんでした。")
+    end
+end
+
 
 function by()
     os.exit()
