@@ -1,4 +1,4 @@
-gg.alert("❌二次配布、販売は禁止です❌")
+gg.alert("二次配布、販売は禁止です")
 function Main()
     Menu = gg.choice({ 
         "重力系メニュー",
@@ -10,7 +10,7 @@ function Main()
         "test",
         "説明",
         "終了",
-    }, nil, '===キーは変更不可能です。===')
+    }, nil, '製作者:@MumbleDebug')
     if Menu == 1 then grav() end
     if Menu == 2 then Current() end
     if Menu == 3 then movement() end
