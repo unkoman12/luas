@@ -1,4 +1,4 @@
-gg.alert("二次配布、販売は禁止です")
+gg.alert("script ver 1.2b")
 function Main()
     Menu = gg.choice({ 
         "重力系メニュー",
@@ -353,7 +353,7 @@ function muteki()
         local a = {}
         local n = 1
         for i = 1, #r do
-            a[n] = { address = r[i].address - 0x8, flags = gg.TYPE_DWORD, value = 0 }
+            a[n] = { address = r[i].address - 0x8, flags = gg.TYPE_DWORD, value = 114514 }
             n = n + 1
         end 
         gg.toast("無敵ON")
