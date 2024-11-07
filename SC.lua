@@ -1,4 +1,4 @@
-gg.alert("script ver 1.2b")
+gg.alert("script ver 1.2.1b")
 function Main()
     Menu = gg.choice({ 
         "重力系メニュー",
