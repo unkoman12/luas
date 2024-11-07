@@ -356,7 +356,7 @@ function muteki()
             a[n] = { address = r[i].address - 0x8, flags = gg.TYPE_DWORD, value = 114514 }
             n = n + 1
         end 
-        gg.toast("無敵ON")
+        gg.toast("scarlet死ねやWwwwwww")
         gg.setValues(a)
     else
         gg.toast("検索結果が見つかりませんでした")
