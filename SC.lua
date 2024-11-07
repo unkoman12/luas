@@ -1,5 +1,4 @@
 gg.alert("script ver 1.2.1b")
-gg.alert("ChangeLog: フジフジSAI入手器を追加しました。反映させる際は"武器連射＋反映"を再度押してください。")
 function Main()
     Menu = gg.choice({ 
         "重力系メニュー",
