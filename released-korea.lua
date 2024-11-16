@@ -47,7 +47,7 @@ function Main()
         "よころわメニュー",
         "説明",
         "終了",
-    }, nil, '製作者:@MumbleDebug')
+    }, nil, 'ばーじょん2 武器改造変更')
     if Menu == 1 then grav() end
     if Menu == 2 then Current() end
     if Menu == 3 then movement() end
