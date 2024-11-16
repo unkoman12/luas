@@ -13,7 +13,7 @@ function xB_A(s)
         return string.char(n)
     end))
 end
-local encoded_password = "ZDQ2NjA2ZTgtODk3OS00MzBhLTg1Y2MtMzU0Y2EwNTcyMDQ0" --korea
+local encoded_password = "MWQ3YWVkMWYtYWQyMi00OTViLThmNjEtMGVhNDY5Y2FlMzY0" --korea
 local correct_password = xB_A(encoded_password)
 local is_authenticated = false
 function prompt_password()
